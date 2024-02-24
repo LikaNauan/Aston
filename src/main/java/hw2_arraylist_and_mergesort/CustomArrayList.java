@@ -41,6 +41,9 @@ public class CustomArrayList<T> implements CustomArrayListInterface<T> {
 
     @Override
     public void add(int index, T item) {
+        if (index == size) {
+            add(item);
+        }
         checkIndex(index);
         resizeForAdd();
         System.arraycopy(elementData, index, elementData, index + 1, size - index);
