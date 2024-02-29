@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<web-app>
+    <display-name>Student Management System</display-name>
+
+    <servlet>
+        <servlet-name>StudentServlet</servlet-name>
+        <servlet-class>hw3_crud.StudentServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>StudentServlet</servlet-name>
+        <url-pattern>/student</url-pattern>
+    </servlet-mapping>
+</web-app>
