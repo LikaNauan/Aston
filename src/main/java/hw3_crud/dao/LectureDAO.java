@@ -55,7 +55,7 @@ public class LectureDAO extends DAO<Lecture> {
     public Lecture save(String topic) {
         Lecture lecture = null;
         try (PreparedStatement preparedStatement = getConnection()
-                .prepareStatement("INSERT INTO lectures (topic) VALUES (?)  returning *");){
+                .prepareStatement("INSERT INTO lectures (topic) VALUES (?)  returning *");) {
 
             preparedStatement.setString(1, topic);
 
@@ -79,11 +79,11 @@ public class LectureDAO extends DAO<Lecture> {
         try (PreparedStatement preparedStatement = getConnection()
                 .prepareStatement("update lectures set topic = ? where id = ? returning *")) {
 
-            preparedStatement.setString(1,lecture.getTopic());
+            preparedStatement.setString(1, lecture.getTopic());
             preparedStatement.setInt(2, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 lectureNew = getLecture(resultSet);
             }
 

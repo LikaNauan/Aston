@@ -16,27 +16,27 @@ public class LectureService {
     private TeacherDAO teacherDAO = new TeacherDAO();
     private StudentDAO studentDAO = new StudentDAO();
 
-    public Lecture getLecture(int id){
+    public Lecture getLecture(int id) {
         return lectureDAO.getById(id);
     }
 
-    public List<Lecture> getAllLectures(){
+    public List<Lecture> getAllLectures() {
         return lectureDAO.getAll();
     }
 
-    public LectureDTO getLectureWithStudentsAndTeachers(int id){
+    public LectureDTO getLectureWithStudentsAndTeachers(int id) {
         Lecture lecture = lectureDAO.getById(id);
         List<StudentDTO> students = studentDAO.getAllStudentForLectureList(lecture.getId());
         List<TeacherDTO> teachers = teacherDAO.getAllTeacherForLectureList(lecture.getId());
 
-        return new LectureDTO(lecture, teachers,students);
+        return new LectureDTO(lecture, teachers, students);
     }
 
-    public void createLecture(Lecture lecture){
+    public void createLecture(Lecture lecture) {
         lectureDAO.save(lecture.getTopic());
     }
 
-    public void updateLecture(int id, Lecture lecture){
+    public void updateLecture(int id, Lecture lecture) {
         lectureDAO.update(id, lecture);
     }
 

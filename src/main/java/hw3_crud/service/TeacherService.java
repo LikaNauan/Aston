@@ -9,19 +9,19 @@ public class TeacherService {
 
     private TeacherDAO teacherDAO = new TeacherDAO();
 
-    public Teacher getTeacher(int id){
+    public Teacher getTeacher(int id) {
         return teacherDAO.getById(id);
     }
 
-    public List<Teacher> getAllTeachers(){
+    public List<Teacher> getAllTeachers() {
         return teacherDAO.getAll();
     }
 
-    public void createTeacher(Teacher teacher){
+    public void createTeacher(Teacher teacher) {
         teacherDAO.save(teacher.getName(), teacher.getAge(), teacher.getLectureId());
     }
 
-    public void updateTeacher(int id, Teacher teacher){
+    public void updateTeacher(int id, Teacher teacher) {
         teacherDAO.update(id, teacher);
     }
 

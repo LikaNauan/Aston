@@ -8,8 +8,7 @@ import java.util.Properties;
 
 public abstract class DAO<T> {
 
-
-     protected Connection getConnection() throws SQLException {
+    protected Connection getConnection() throws SQLException {
         Properties connectionProps = new Properties();
         connectionProps.put("user", "postgresql");
         connectionProps.put("password", "postgresql");

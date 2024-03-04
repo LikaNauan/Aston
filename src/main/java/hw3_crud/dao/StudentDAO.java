@@ -3,7 +3,9 @@ package hw3_crud.dao;
 import hw3_crud.dto.StudentDTO;
 import hw3_crud.entity.users.Student;
 
-import java.sql.*;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +72,7 @@ public class StudentDAO extends DAO<Student> {
         }
     }
 
-    public Student save(String name,int age, int lectureId) {
+    public Student save(String name, int age, int lectureId) {
         Student student = null;
         try (PreparedStatement preparedStatement = getConnection().prepareStatement(
                 "INSERT INTO students (name, age, lecture_id) VALUES (?,?, ?) returning *")) {
@@ -125,6 +127,7 @@ public class StudentDAO extends DAO<Student> {
             throw new RuntimeException(e);
         }
     }
+
     public void deleteLecture(int lectureId) {
         try (PreparedStatement preparedStatement = getConnection()
                 .prepareStatement("update students set lecture_id = 0 where lecture_id = ? ")) {

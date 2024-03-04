@@ -12,7 +12,6 @@ import java.util.List;
 @Getter
 public class LectureDTO {
     private Lecture lecture;
-
     private List<TeacherDTO> teachers;
     private List<StudentDTO> students;
 }

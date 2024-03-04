@@ -8,19 +8,20 @@ import java.util.List;
 public class StudentService {
 
     private StudentDAO studentDAO = new StudentDAO();
-    public Student getStudent(int id){
+
+    public Student getStudent(int id) {
         return studentDAO.getById(id);
     }
 
-    public List<Student> getAllStudents(){
+    public List<Student> getAllStudents() {
         return studentDAO.getAll();
     }
 
-    public void createStudent(Student student){
+    public void createStudent(Student student) {
         studentDAO.save(student.getName(), student.getAge(), student.getLectureId());
     }
 
-    public void updateStudent(int id, Student student){
+    public void updateStudent(int id, Student student) {
         studentDAO.update(id, student);
     }
 

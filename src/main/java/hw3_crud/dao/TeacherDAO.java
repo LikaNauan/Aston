@@ -74,10 +74,10 @@ public class TeacherDAO extends DAO<Teacher> {
         }
     }
 
-    public Teacher save(String name,int age, int lectureId) {
+    public Teacher save(String name, int age, int lectureId) {
         Teacher teacher = null;
         try (PreparedStatement preparedStatement = getConnection()
-                .prepareStatement("INSERT INTO teachers (name, age, lecture_id ) VALUES (?, ?, ?)  returning *");){
+                .prepareStatement("INSERT INTO teachers (name, age, lecture_id ) VALUES (?, ?, ?)  returning *");) {
 
             preparedStatement.setString(1, name);
             preparedStatement.setInt(2, age);
@@ -109,7 +109,7 @@ public class TeacherDAO extends DAO<Teacher> {
             preparedStatement.setInt(4, id);
 
             ResultSet resultSet = preparedStatement.executeQuery();
-            if (resultSet.next()){
+            if (resultSet.next()) {
                 teacherNew = getTeacher(resultSet);
             }
 
@@ -131,6 +131,7 @@ public class TeacherDAO extends DAO<Teacher> {
             throw new RuntimeException(e);
         }
     }
+
     public void deleteLecture(int lectureId) {
         try (PreparedStatement preparedStatement = getConnection()
                 .prepareStatement("update teachers set lecture_id = 0 where lecture_id = ? ")) {
